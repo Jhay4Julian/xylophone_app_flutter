@@ -12,6 +12,20 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$noteNumber.wav');
   }
 
+  Expanded buildKey({required Color backgroundColor, required int noteNumber}) {
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: backgroundColor,
+        ),
+        onPressed: () {
+          playNote(noteNumber);
+        },
+        child: const Text(''),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,74 +33,23 @@ class XylophoneApp extends StatelessWidget {
       title: 'My Xylophone',
       home: SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.black,
           appBar: AppBar(
+            backgroundColor: Colors.black,
             title: const Text('My Xylophone'),
           ),
           body: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.red,
-                ),
-                onPressed: () {
-                  playNote(1);
-                },
-                child: Text(''),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.orange,
-                ),
-                onPressed: () {
-                  playNote(2);
-                },
-                child: Text(''),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.yellow,
-                ),
-                onPressed: () {
-                  playNote(3);
-                },
-                child: Text(''),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.green,
-                ),
-                onPressed: () {
-                  playNote(4);
-                },
-                child: const Text(''),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                ),
-                onPressed: () {
-                  playNote(5);
-                },
-                child: const Text(''),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.indigo,
-                ),
-                onPressed: () {
-                  playNote(6);
-                },
-                child: const Text(''),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                ),
-                onPressed: () {
-                  playNote(7);
-                },
-                child: const Text(''),
-              ),
+              Container(height: 15, color: Colors.black),
+              buildKey(backgroundColor: Colors.red, noteNumber: 1),
+              buildKey(backgroundColor: Colors.orange, noteNumber: 2),
+              buildKey(backgroundColor: Colors.yellow, noteNumber: 3),
+              buildKey(backgroundColor: Colors.green, noteNumber: 4),
+              buildKey(backgroundColor: Colors.blue, noteNumber: 5),
+              buildKey(backgroundColor: Colors.indigo, noteNumber: 6),
+              buildKey(backgroundColor: Colors.purple, noteNumber: 7),
+              Container(height: 15, color: Colors.black),
             ],
           ),
         ),
