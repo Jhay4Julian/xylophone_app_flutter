@@ -1,6 +1,8 @@
 # xylophone_app
 
-A new Flutter project.
+A simple xylophone app.
+
+![Screenshot_20220701-133411](https://user-images.githubusercontent.com/89572264/176899473-e8585531-534e-4b8f-871f-d3e20a4c062f.jpg)
 
 ## Getting Started
 
